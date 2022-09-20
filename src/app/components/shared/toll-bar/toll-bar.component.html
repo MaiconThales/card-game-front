@@ -3,10 +3,12 @@
     <!--Side bar-->
     <mat-drawer [hidden]="!showToolBar" #drawer [opened]="isShowSideBar" class="example-sidenav" mode="side">
         <div>
-            <p>E-mail: </p>
+            <p>{{'TOLL_BAR.LABEL_EMAIL_USER_LOGGED' | translate}}: {{userLogged.email}}</p>
         </div>
         <div>
-            <button mat-raised-button (click)="redirectToMenu(1)" color="primary">DECK</button>
+            <button mat-raised-button (click)="redirectToMenu(1)" color="primary">
+                {{'TOLL_BAR.BUTTON_DECK' | translate}}
+            </button>
         </div>
     </mat-drawer>
     <div class="example-sidenav-content">
@@ -14,11 +16,10 @@
         <!--Toll bar-->
         <div *ngIf="showToolBar">
             <mat-toolbar color="primary">
-                <button (click)="toggleSideNav()" mat-icon-button class="example-icon"
-                    aria-label="Example icon-button with menu icon">
+                <button (click)="toggleSideNav()" mat-icon-button>
                     <mat-icon>menu</mat-icon>
                 </button>
-                <span id="navBarName" (click)="redirectToDashboard();">Hand Card</span>
+                <span id="navBarName" (click)="redirectToDashboard();">{{'TOLL_BAR.TITLE_GAME' | translate}}</span>
                 <span class="example-spacer"></span>
                 <!--<app-look-for-match [infoUser]="userLogged"></app-look-for-match>-->
                 <button mat-icon-button (click)="logout()" aria-label="Logout">

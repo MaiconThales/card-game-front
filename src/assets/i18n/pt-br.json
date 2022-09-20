@@ -1,0 +1,35 @@
+{
+    "pt-br": "Português Brasil",
+    "en": "Inglês",
+    "GLOBAL_WORD": {
+        "WORD_REQUERID_MASCULINE": "obrigatório",
+        "WORD_REQUERID_FEMALE": "obrigatória",
+        "MSG_USERNAME_ALREADY": "Username já existe",
+        "MSG_EMAIL_ALREADY": "E-mail já existe",
+        "MSG_USER_CREATE_SUCCESS": "Usuário criado com sucesso",
+        "BUTTON_CLOSE": "Fechar",
+        "BUTTON_SAVE": "Salvar",
+        "LOGGOUT": "Logout realizado com sucesso!"
+    },
+    "TOLL_BAR" : {
+        "TITLE_GAME": "Card Game",
+        "LABEL_EMAIL_USER_LOGGED": "E-mail",
+        "BUTTON_DECK": "Deck"
+    },
+    "LOGIN": {
+        "INPUT_USERNAME": "Username",
+        "INPUT_PASSWORD": "Senha",
+        "INPUT_EMAIL": "E-mail",
+        "INPUT_LANGUAGE": "Idioma",
+        "INPUT_CREATE_USER": "Criar usuário",
+        "INPUT_LOGIN": "Logar",
+        "INPUT_OK": "Ok",
+        "ERROR_USERNAME": "Username é",
+        "ERROR_PASSWORD": "Senha é",
+        "ERROR_EMAIL_1": "E-mail é",
+        "ERROR_EMAIL_2": "E-mail inválido",
+        "ERROR_LANGUAGE": "Idioma é",
+        "INFO_INVALID_LOGIN": "Login ou senha inválido",
+        "TITLE_CREATE_USER": "Criar usuário"
+    }
+}

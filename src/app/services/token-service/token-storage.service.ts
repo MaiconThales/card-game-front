@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
-import { LoginService, UserInfoService } from 'src/app/services';
+import { LoginService } from 'src/app/services';
 import { LogOutRequestDTO } from 'src/app/models';
 
 const TOKEN_KEY = 'auth-token';
@@ -14,20 +15,14 @@ const REFRESHTOKEN_KEY = 'auth-refreshtoken';
 export class TokenStorageService {
 
   constructor(
-    private loginService: LoginService,
-    private snackBar: MatSnackBar
+    private loginService: LoginService
   ) { }
 
   public signOut(): void {
     let logOutRequest: LogOutRequestDTO = {userId: this.getUser().id};
     this.loginService.logoutUser(logOutRequest).subscribe({
-      error: err => {
-        this.snackBar.open(err.menssage, 'Ok', {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 10000
-        });
-      }
+      next: () => {},
+      error: () => {}
     });
     window.sessionStorage.clear();
   }

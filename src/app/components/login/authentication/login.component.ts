@@ -9,6 +9,7 @@ import { AuthServiceService, TokenStorageService, ToolBarService, UserInfoServic
 import { MyErrorStateMatcher } from '../../shared/errors/errors.component';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginCreateComponent } from '../login-create/login-create.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private userInfoService: UserInfoService,
-    private toolBarService: ToolBarService
+    private toolBarService: ToolBarService,
+    private translate: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -62,7 +64,9 @@ export class LoginComponent implements OnInit {
       error: err => {
         this.resetForm();
         this.errorMessage = err.message;
-        this.snackBar.open('Login ou senha inválido', '', {
+        this.snackBar.open( this.translate.instant("LOGIN.INFO_INVALID_LOGIN"), 
+                            this.translate.instant("LOGIN.INPUT_OK"), 
+        {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
           duration: 10000
@@ -89,14 +93,18 @@ export class LoginComponent implements OnInit {
   createUser(u: SignupRequestDTO): void {
     this.authService.register(u).subscribe({
       next: data => {
-        this.snackBar.open("SUCCESS", 'Ok', {
+        this.snackBar.open( this.translate.instant(data.message), 
+                            this.translate.instant("LOGIN.INPUT_OK"),
+        {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
           duration: 10000
         });
       },
       error: err => {
-        this.snackBar.open("ERROR", 'Ok', {
+        this.snackBar.open( this.translate.instant(err.error.message), 
+                            this.translate.instant("LOGIN.INPUT_OK"),
+        {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
           duration: 10000

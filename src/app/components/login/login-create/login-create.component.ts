@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
+import { environment as e } from '../../../../environments/environment.prod';
 import { SignupRequestDTO } from 'src/app/models';
 import { MyErrorStateMatcher } from '../../shared/errors/errors.component';
 
@@ -14,7 +15,7 @@ export class LoginCreateComponent {
 
   userCreateForm!: FormGroup;
   matcher = new MyErrorStateMatcher();
-  //language: string[] = e.LANGUAGE_OPTIONS;
+  language: string[] = e.LANGUAGE_OPTIONS;
 
   constructor(
     public dialogRef: MatDialogRef<LoginCreateComponent>

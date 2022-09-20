@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment as e } from 'src/environments/environment.prod';
-import { JwtResponseDTO, LogOutRequestDTO } from 'src/app/models';
-import { LoginService, TokenStorageService, ToolBarService, UserInfoService } from 'src/app/services';
+import { JwtResponseDTO } from 'src/app/models';
+import { TokenStorageService, ToolBarService, UserInfoService } from 'src/app/services';
 
 @Component({
   selector: 'app-toll-bar',
@@ -13,20 +13,30 @@ import { LoginService, TokenStorageService, ToolBarService, UserInfoService } fr
 export class TollBarComponent implements OnInit {
 
   showToolBar: boolean = false;
-  userLogged!: JwtResponseDTO;
+  userLogged: JwtResponseDTO = {
+    id: 0,
+    email: "",
+    language: "",
+    roles: [],
+    token: "",
+    type: "", 
+    username: ""
+  };
   isShowSideBar: boolean = false;
 
   constructor(
     private router: Router,
     private tokenStorage: TokenStorageService,
     private userInfoService: UserInfoService,
-    private loginService: LoginService,
     private toolBarService: ToolBarService
   ) { }
 
   ngOnInit(): void {
     this.toolBarService.showToolBar.subscribe(show => {
       this.showToolBar = show;
+    });
+    this.userInfoService.user.subscribe(u => {
+      this.userLogged = u;
     });
     this.isLoggedIn();
   }
@@ -44,16 +54,7 @@ export class TollBarComponent implements OnInit {
     if (this.isShowSideBar) {
       this.toggleSideNav();
     }
-
-    let logout: LogOutRequestDTO = {
-      userId: this.userLogged.id
-    }
-    this.loginService.logoutUser(logout).subscribe({
-      next: data => {},
-      error: err => {}
-    });
     this.tokenStorage.signOut();
-
     this.showToolBar = false;
     this.router.navigate([e.REDIRECT_AUTHENTICATION]);
   }

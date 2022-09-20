@@ -5,5 +5,7 @@ export const environment = {
   LOGIN_CONTROLLER: "login",
 
   REDIRECT_AUTHENTICATION: 'authentication',
-  REDIRECT_DASHBOARD: 'dashboard'
+  REDIRECT_DASHBOARD: 'dashboard',
+
+  LANGUAGE_OPTIONS: ['pt-br', 'en']
 };
