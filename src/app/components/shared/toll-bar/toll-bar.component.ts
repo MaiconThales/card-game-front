@@ -45,7 +45,6 @@ export class TollBarComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.userLogged = this.tokenStorage.getUser();
       this.userInfoService.setValueUser(this.userLogged);
-      this.router.navigate([e.REDIRECT_DASHBOARD]);
       this.showToolBar = true;
     }
   }
@@ -66,7 +65,7 @@ export class TollBarComponent implements OnInit {
   redirectToMenu(value: number): void {
     switch (value) {
       case 1:
-        //this.router.navigate([e.REDIRECT_DECK]);
+        this.router.navigate([e.REDIRECT_DECK]);
         break;
       default:
         //this.router.navigate([e.REDIRECT_DASHBOARD]);

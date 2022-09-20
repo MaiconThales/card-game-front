@@ -6,6 +6,8 @@ export const environment = {
 
   REDIRECT_AUTHENTICATION: 'authentication',
   REDIRECT_DASHBOARD: 'dashboard',
+  REDIRECT_DECK: 'deck',
+  REDIRECT_BOARD: 'board',
 
   LANGUAGE_OPTIONS: ['pt-br', 'en']
 };

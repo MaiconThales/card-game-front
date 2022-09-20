@@ -28,7 +28,9 @@ import {
   LookForMatchComponent,
   TollBarComponent,
   NotFoundComponent,
-  LoginCreateComponent
+  LoginCreateComponent,
+  BoardComponent,
+  DeckListComponent
 } from 'src/app/components';
 
 import { authInterceptorProviders } from './shared';
@@ -48,7 +50,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     LookForMatchComponent,
     TollBarComponent,
     NotFoundComponent,
-    LoginCreateComponent
+    LoginCreateComponent,
+    BoardComponent,
+    DeckListComponent
   ],
   imports: [
     HttpClientModule,

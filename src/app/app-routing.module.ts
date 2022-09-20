@@ -6,7 +6,9 @@ import { AuthGuardService as AuthGuard } from './services';
 import {
   DashboardComponent,
   LoginComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  BoardComponent,
+  DeckListComponent
 } from 'src/app/components';
 
 const routes: Routes = [
@@ -16,6 +18,18 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     canActivate: [AuthGuard]
     //title: 'Dashboard'
+  },
+  { 
+    path: 'board', 
+    component: BoardComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: 'deck', 
+    component: DeckListComponent,
+    canLoad: [AuthGuard],
+    canActivate: [AuthGuard]
   },
   { 
     path: 'authentication', 

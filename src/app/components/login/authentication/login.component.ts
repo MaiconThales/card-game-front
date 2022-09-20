@@ -41,6 +41,13 @@ export class LoginComponent implements OnInit {
       username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
+    this.isLoggedIn();
+  }
+
+  isLoggedIn() {
+    if (this.tokenStorage.getToken()) {
+      this.router.navigate([e.REDIRECT_DASHBOARD]);
+    }
   }
 
   onSubmit(): void {
