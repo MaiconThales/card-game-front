@@ -1,0 +1,42 @@
+<div>
+    <form [formGroup]="loginForm" novalidate>
+        <div class="container">
+            <!--Username-->
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="5px" fxLayoutAlign="center center">
+                <mat-form-field appearance="standard">
+                    <mat-label>
+                        USERNAME
+                    </mat-label>
+                    <input id="username" matInput type="username" formControlName="username" [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+                        ERROR_USERNAME <strong>REQUERED</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+    
+            <!--Password-->
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="5px" fxLayoutAlign="center center">
+                <mat-form-field appearance="standard">
+                    <mat-label>
+                        PASSWORD
+                    </mat-label>
+                    <input id="password" autocomplete="password" matInput type="password" formControlName="password"
+                        [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                        ERROR_PASSWORD <strong>REQUERED</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+    
+            <!--Btn-->
+            <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="5px" fxLayoutAlign="center center">
+                <button mat-button (click)="openDialogCreateUser()">
+                    CREATE
+                </button>
+                <button mat-button class="button-general" color="basic" (click)="onSubmit()" [disabled]="!loginForm.valid">
+                    LOGIN
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

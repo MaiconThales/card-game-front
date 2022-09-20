@@ -1,3 +1,9 @@
 export const environment = {
-  production: true
+  production: true,
+
+  AUTH_API: "http://localhost:8080/",
+  LOGIN_CONTROLLER: "login",
+
+  REDIRECT_AUTHENTICATION: 'authentication',
+  REDIRECT_DASHBOARD: 'dashboard'
 };
