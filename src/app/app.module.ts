@@ -21,6 +21,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import {
   LoginComponent,
@@ -85,7 +86,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSidenavModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     authInterceptorProviders

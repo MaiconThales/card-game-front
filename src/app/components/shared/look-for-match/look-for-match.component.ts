@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { JwtResponseDTO, User } from 'src/app/models';
 
 @Component({
   selector: 'app-look-for-match',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LookForMatchComponent implements OnInit {
 
-  constructor() { }
+  @Input() infoUser!: JwtResponseDTO;
+
+  isLookForMatch: boolean = false;
+  isDisabledBtnSearcMatch!: boolean;
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  lookForMatch(): void {
+    this.isLookForMatch = true;
+    this.isDisabledBtnSearcMatch = true;
+  }
+
+  cancelLookForMatch(): void {
+    this.isLookForMatch = false;
+    this.isDisabledBtnSearcMatch = false;
   }
 
 }
