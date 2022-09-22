@@ -3,6 +3,7 @@ export const environment = {
 
   AUTH_API: "http://localhost:8080/",
   LOGIN_CONTROLLER: "login",
+  MATCH_CONTROLLER: "match",
 
   REDIRECT_AUTHENTICATION: 'authentication',
   REDIRECT_DASHBOARD: 'dashboard',
