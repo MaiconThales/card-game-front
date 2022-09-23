@@ -5,9 +5,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
+import { environment as e } from 'src/environments/environment.prod';
 import { DeckDTO } from 'src/app/models';
-import { DeckService } from 'src/app/services';
+import { DeckService, TokenStorageService } from 'src/app/services';
 import { DialogAddComponent } from '../dialog-add/dialog-add.component';
 import { DialogAddCardComponent } from '../dialog-add-card/dialog-add-card.component';
 import { DialogViewCardsComponent } from '../dialog-view-cards/dialog-view-cards.component';
@@ -24,16 +26,24 @@ export class DeckListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'options'];
   dataSource!: MatTableDataSource<DeckDTO>;
   decks: DeckDTO[] = [];
+  isAdmin: boolean = false;
 
   constructor(
     public dialog: MatDialog,
     private deckService: DeckService,
     private snackBar: MatSnackBar,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private tokenStorage: TokenStorageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.getDecks();
+    this.isAdmin = this.tokenStorage.verifyAdminRole();
+    if(this.isAdmin) {
+      this.getDecks();
+    } else {
+      this.router.navigate([e.REDIRECT_DASHBOARD]);
+    }
   }
 
   applyFilter(event: Event) {

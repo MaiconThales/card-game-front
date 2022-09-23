@@ -23,6 +23,7 @@ export class TollBarComponent implements OnInit {
     username: ""
   };
   isShowSideBar: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(
     private router: Router,
@@ -39,6 +40,11 @@ export class TollBarComponent implements OnInit {
       this.userLogged = u;
     });
     this.isLoggedIn();
+    this.getPermission();
+  }
+
+  getPermission(): void {
+    this.isAdmin = this.tokenStorage.verifyAdminRole();
   }
 
   isLoggedIn() {

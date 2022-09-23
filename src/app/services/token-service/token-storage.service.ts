@@ -8,6 +8,7 @@ import { LogOutRequestDTO } from 'src/app/models';
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 const REFRESHTOKEN_KEY = 'auth-refreshtoken';
+const ADMIN = "ROLE_ADMIN";
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,11 @@ export class TokenStorageService {
   public getIdUser(): number {
     let userId = this.getUser().id;
     return userId;
+  }
+
+  public verifyAdminRole(): boolean {
+    let roles = this.getUser().roles;
+    return roles.includes(ADMIN);
   }
   
 }

@@ -41,6 +41,7 @@ import {
 } from 'src/app/components';
 
 import { authInterceptorProviders } from './shared';
+import { AuthGuardService, AuthServiceService } from './services';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -102,7 +103,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCardModule
   ],
   providers: [
-    authInterceptorProviders
+    authInterceptorProviders,
+    AuthGuardService,
+    AuthServiceService
   ],
   bootstrap: [AppComponent]
 })
