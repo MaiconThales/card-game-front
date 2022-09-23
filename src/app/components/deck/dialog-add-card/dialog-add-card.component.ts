@@ -34,7 +34,7 @@ export class DialogAddCardComponent implements OnInit {
       });
     } else { //Add
       this.cardForm = new FormGroup({
-        id: new FormControl(this.data != null ? this.data.deck.id : ''),
+        id: new FormControl(null),
         nameCard: new FormControl(this.data != null ? this.data.deck.nameCard : '', [Validators.required]),
         damage: new FormControl(this.data != null ? this.data.deck.damage : undefined, [Validators.required]),
         life: new FormControl(this.data != null ? this.data.deck.life : undefined, [Validators.required]),
