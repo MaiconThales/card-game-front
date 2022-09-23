@@ -5,3 +5,4 @@ export * from './login/login.service';
 export * from './user-info/user-info.service';
 export * from './tool-bar/tool-bar.service';
 export * from './match/match.service';
+export * from './deck/deck.service';

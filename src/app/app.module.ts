@@ -22,6 +22,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 import {
   LoginComponent,
@@ -31,7 +34,10 @@ import {
   NotFoundComponent,
   LoginCreateComponent,
   BoardComponent,
-  DeckListComponent
+  DeckListComponent,
+  DialogAddCardComponent,
+  DialogAddComponent,
+  DialogViewCardsComponent
 } from 'src/app/components';
 
 import { authInterceptorProviders } from './shared';
@@ -53,7 +59,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundComponent,
     LoginCreateComponent,
     BoardComponent,
-    DeckListComponent
+    DeckListComponent,
+    DialogAddCardComponent,
+    DialogAddComponent,
+    DialogViewCardsComponent
   ],
   imports: [
     HttpClientModule,
@@ -87,7 +96,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatToolbarModule,
     MatTooltipModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [
     authInterceptorProviders

@@ -9,7 +9,8 @@
         "MSG_USER_CREATE_SUCCESS": "Usuário criado com sucesso",
         "BUTTON_CLOSE": "Fechar",
         "BUTTON_SAVE": "Salvar",
-        "LOGGOUT": "Logout realizado com sucesso!"
+        "LOGGOUT": "Logout realizado com sucesso!",
+        "NO_DATA": "Não há informações!"
     },
     "TOLL_BAR" : {
         "TITLE_GAME": "Card Game",
@@ -31,5 +32,28 @@
         "ERROR_LANGUAGE": "Idioma é",
         "INFO_INVALID_LOGIN": "Login ou senha inválido",
         "TITLE_CREATE_USER": "Criar usuário"
+    },
+    "DECK": {
+        "TITLE_DECK": "Gerenciamento de DECKs",
+        "TITLE_CREATE_DECK": "Criar DECK",
+        "TITLE_CREATE_CARD": "Criar Carta",
+        "TITLE_LIST_CARD": "Listar cartas",
+        "BUTTON_ADD_DECK": "Criar deck",
+        "BUTTON_EDIT_CARD": "Editar",
+        "BUTTON_DELETE_CARD": "Remover",
+        "LABEL_FILTER": "Filtrar",
+        "RESULT_FILTER": "Nada encontrado para :",
+        "TABLE_COLUMN_1": "Nome",
+        "TABLE_COLUMN_2": "Opções",
+        "TOOLTIP_1": "Ver cartas",
+        "TOOLTIP_2": "Criar carta",
+        "TOOLTIP_3": "Editar",
+        "TOOLTIP_4": "Deletar",
+        "INPUT_NAME": "Nome",
+        "INPUT_DAMAGE": "Dano",
+        "INPUT_LIFE": "Vida",
+        "ERROR_NAME": "Nome é",
+        "ERROR_DAMAGE": "Dano é",
+        "ERROR_LIFE": "Vida é"
     }
 }

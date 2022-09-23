@@ -1,0 +1,35 @@
+<form [formGroup]="deckForm" class="deck-form">
+    <!--Title-->
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="5px" fxLayoutAlign="center center">
+        {{'DECK.TITLE_CREATE_DECK' | translate}}
+    </div>
+
+    <!-- Name -->
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="5px" fxLayoutAlign="center center">
+        <mat-form-field appearance="standard">
+            <mat-label>
+                {{'DECK.INPUT_NAME' | translate}}
+            </mat-label>
+            <input matInput id="nameDeck" type="text" formControlName="nameDeck">
+            <mat-error *ngIf="deckForm.controls['nameDeck'].hasError('required')">
+                {{'DECK.ERROR_NAME' | translate}} 
+                <strong>{{'GLOBAL_WORD.WORD_REQUERID_MASCULINE' | translate}}</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <!--Btns-->
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="5px" fxLayoutAlign="center center">
+        <div>
+            <button (click)="onNoClick();" mat-icon-button matTooltip="{{'GLOBAL_WORD.BUTTON_CLOSE' | translate}}" matTooltipPosition="left">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <div>
+            <button (click)="onSubmit()" type="submit" [disabled]="!deckForm.valid"
+                mat-icon-button matTooltip="{{'GLOBAL_WORD.BUTTON_SAVE' | translate}}" matTooltipPosition="after">
+                <mat-icon>save</mat-icon>
+            </button>
+        </div>
+    </div>
+</form>
